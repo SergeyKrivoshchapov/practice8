@@ -39,6 +39,9 @@ string Smartphone::colorToString(Color c) {
         case Color::BLUE: return "BLUE";
         case Color::RED: return "RED";
         case Color::GOLD: return "GOLD";
+        case Color::YELLOW: return "YELLOW";
+        case Color::GREEN: return "GREEN";
+        case Color::BROWN: return "BROWN";
         default: return "UNDEFINED";
     }
 }
@@ -49,6 +52,9 @@ string Smartphone::manufacturerToString(Manufacturer m) {
         case Manufacturer::SAMSUNG: return "SAMSUNG";
         case Manufacturer::XIAOMI: return "XIAOMI";
         case Manufacturer::HTC: return "HTC";
+        case Manufacturer::HUAWEI: return "HUAWEI";
+        case Manufacturer::GOOGLE: return "GOOGLE";
+        case Manufacturer::PANASONIC: return "PANASONIC";
         default: return "UNDEFINED";
     }
 }
@@ -57,6 +63,9 @@ string Smartphone::osToString(OS o) {
     switch (o) {
         case OS::ANDROID: return "ANDROID";
         case OS::IOS: return "IOS";
+        case OS::WINDOWS: return "WINDOWS";
+        case OS::GOOGLE: return "GOOGLE";
+        case OS::BLACKBERRY: return "BLACKBERRY";
         default: return "UNDEFINED";
     }
 }
@@ -65,6 +74,9 @@ string Smartphone::cpuToString(CPU cpu) {
     switch (cpu) {
         case CPU::SNAPDRAGON: return "SNAPDRAGON";
         case CPU::APPLE: return "APPLE";
+        case CPU::EXYNOS: return "EXYNOS";
+        case CPU::TENSOR: return "TENSOR";
+        case CPU::TIGER: return "TIGER";
         default: return "UNDEFINED";
     }
 }
