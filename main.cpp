@@ -6,7 +6,7 @@ Catalog InitializeCatalog() {
     Catalog catalog;
     catalog.addSmartphone("iPhone 12 Pro", 100, Manufacturer::APPLE,
     Color::WHITE, 6, 3, 64, CPU::APPLE, OS::IOS);
-    catalog.addSmartphone("iPhone 12 Pro", 102, Manufacturer::APPLE,
+    catalog.addSmartphone("iPhone 12 Pro", 102, Manufacturer::APPLE, ////
     Color::WHITE, 6, 3, 128, CPU::APPLE, OS::IOS);
     catalog.addSmartphone("iPhone 12 Pro", 98, Manufacturer::APPLE,
     Color::BLUE, 6, 3, 64, CPU::APPLE, OS::IOS);
