@@ -1,4 +1,5 @@
 #include "Smartphone.h"
+#include <iostream>
 Smartphone::Smartphone() {
     this->model = ""; this->price = 0;
     this->manufacturer = Manufacturer::UNDEFINED;
@@ -66,4 +67,20 @@ string Smartphone::cpuToString(CPU cpu) {
         case CPU::APPLE: return "APPLE";
         default: return "UNDEFINED";
     }
+}
+
+void Smartphone::print() {
+    if (model.empty()) {
+        cout << "Sorry, we have nothing for you." << endl;
+        return;
+    }
+
+    cout << "You might like this: ";
+    cout << manufacturerToString(manufacturer) << " " << model << endl;
+    cout << "Price: " << price << endl;
+    cout << "Color: " << colorToString(color) << endl;
+    cout << "Display: " << displaySize << endl;
+    cout << "OS: " << osToString(os) << endl;
+    cout << ram << "Gb RAM, " << storage << " GB storage" << endl;
+    cout << "CPU: " << cpuToString(cpu) << endl;
 }

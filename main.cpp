@@ -6,7 +6,7 @@ Catalog InitializeCatalog() {
     Catalog catalog;
     catalog.addSmartphone("iPhone 12 Pro", 100, Manufacturer::APPLE,
     Color::WHITE, 6, 3, 64, CPU::APPLE, OS::IOS);
-    catalog.addSmartphone("iPhone 12 Pro", 102, Manufacturer::APPLE, /
+    catalog.addSmartphone("iPhone 12 Pro", 102, Manufacturer::APPLE,
     Color::WHITE, 6, 3, 128, CPU::APPLE, OS::IOS);
     catalog.addSmartphone("iPhone 12 Pro", 98, Manufacturer::APPLE,
     Color::BLUE, 6, 3, 64, CPU::APPLE, OS::IOS);
@@ -19,15 +19,7 @@ int main(int argc, char* argv[]) {
     vector<Smartphone> results = catalog.search(whatBuyerLikes);
     if (!results.empty()) {
         cout << "You might like this:" << endl;
-        for (Smartphone s : results) {
-            cout << s.getModel() << endl;
-            cout << "Price: " << s.getPrice() << endl;
-            cout << "Manufacturer: " << s.manufacturerToString(s.getManufacturer()) << endl;
-            
-            cout << "Display: " << s.getDisplay() << endl;
-            cout << s.getRAM() << "Gb RAM, " << s.getStorage() << " GB storage"
-            << endl << endl;
-        }
+        for (Smartphone s : results) s.print();
     }
     else cout << "Sorry, we have nothing for you.";
     return 0;

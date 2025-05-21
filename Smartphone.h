@@ -33,4 +33,5 @@ public:
     string manufacturerToString(Manufacturer m);
     string osToString(OS o);
     string cpuToString(CPU cpu);
+    void print();
 };
