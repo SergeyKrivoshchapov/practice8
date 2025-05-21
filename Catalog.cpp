@@ -1,7 +1,8 @@
 #include "Catalog.h"
+#include "Price.h"
 #include <algorithm>
 #include <cctype>
-void Catalog::addSmartphone(string model, double price, Manufacturer
+void Catalog::addSmartphone(string model, Price price, Manufacturer
 manufacturer,
 Color color, float displaySize, int ram,
 int storage, CPU cpu, OS os) {
@@ -27,6 +28,7 @@ vector<Smartphone> Catalog::search(const Smartphone& searchSmartphone) {
         string model2 = s.getModel();
         transform(model2.begin(), model2.end(), model2.begin(), [](unsigned char c) { return tolower(c); });
         if (!model.empty() && model != model2) continue;
+        if ((searchSmartphone.getPrice()).amountPrice() > 0 &&  searchSmartphone.getPrice() <= s.getPrice()) continue;
         Manufacturer manufacturer = searchSmartphone.getManufacturer();
         if (manufacturer != Manufacturer::UNDEFINED && manufacturer !=
         s.getManufacturer()) continue;

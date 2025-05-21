@@ -7,4 +7,8 @@ add_executable(project81 main.cpp
         Smartphone.cpp
         Smartphone.h
         Catalog.cpp
-        Catalog.h)
+        Catalog.h
+        Price.cpp
+        Price.h
+        Price.cpp
+        Price.h)

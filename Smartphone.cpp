@@ -1,14 +1,15 @@
 #include "Smartphone.h"
 #include <iostream>
 Smartphone::Smartphone() {
-    this->model = ""; this->price = 0;
+    this->price = Price();
+    this->model = "";
     this->manufacturer = Manufacturer::UNDEFINED;
     this->color = Color::UNDEFINED;
     this->displaySize = 0; this->ram = 0;
     this->storage = 0;
     this->cpu = CPU::UNDEFINED; this->os = OS::UNDEFINED;
 }
-Smartphone::Smartphone(string model, double price, Manufacturer manufacturer,
+Smartphone::Smartphone(string model, Price price, Manufacturer manufacturer,
 Color color, float displaySize, int ram, int storage, CPU cpu, OS os) {
     this->model = model;
     this->price = price;
@@ -28,8 +29,8 @@ int Smartphone::getRAM() const { return ram; }
 int Smartphone::getStorage() const { return storage; }
 CPU Smartphone::getCPU() const { return cpu; }
 OS Smartphone::getOS() const { return os; }
-double Smartphone::getPrice() const { return price; }
-void Smartphone::setPrice(double price) { this->price = price; }
+Price Smartphone::getPrice() const { return price; }
+void Smartphone::setPrice(Price price) { this->price = price; }
 
 string Smartphone::colorToString(Color c) {
     switch (c) {
@@ -89,7 +90,7 @@ void Smartphone::print() {
 
     cout << "You might like this: ";
     cout << manufacturerToString(manufacturer) << " " << model << endl;
-    cout << "Price: " << price << endl;
+    cout << "Price: " << price.amountPrice() << price.valutaToString(price.getValuta()) << endl;
     cout << "Color: " << colorToString(color) << endl;
     cout << "Display: " << displaySize << endl;
     cout << "OS: " << osToString(os) << endl;

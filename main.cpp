@@ -4,21 +4,20 @@
 using namespace std;
 Catalog InitializeCatalog() {
     Catalog catalog;
-    catalog.addSmartphone("iPhone 12 Pro", 100, Manufacturer::APPLE,
+    catalog.addSmartphone("iPhone 12 Pro", Price(100, Valuta::USD), Manufacturer::APPLE,
     Color::WHITE, 6, 3, 64, CPU::APPLE, OS::IOS);
-    catalog.addSmartphone("iPhone 12 Pro", 102, Manufacturer::APPLE,
+    catalog.addSmartphone("iPhone 12 Pro", Price(102, Valuta::USD), Manufacturer::APPLE,
     Color::WHITE, 6, 3, 128, CPU::APPLE, OS::IOS);
-    catalog.addSmartphone("iPhone 12 Pro", 98, Manufacturer::APPLE,
-    Color::BLUE, 6, 3, 64, CPU::APPLE, OS::IOS);
+    catalog.addSmartphone("iPhone 12 Pro", Price(99, Valuta::RUB), Manufacturer::APPLE,
+    Color::WHITE, 6, 3, 64, CPU::APPLE, OS::IOS);
     return catalog;
 }
 int main(int argc, char* argv[]) {
     Catalog catalog = InitializeCatalog();
-    Smartphone whatBuyerLikes{"iphone 12 pro", 0, Manufacturer::APPLE,
+    Smartphone whatBuyerLikes{"iphone 12 pro", Price(101, Valuta::USD), Manufacturer::APPLE,
     Color::WHITE, 0 , 0, 0, CPU::UNDEFINED, OS::UNDEFINED};
     vector<Smartphone> results = catalog.search(whatBuyerLikes);
     if (!results.empty()) {
-        cout << "You might like this:" << endl;
         for (Smartphone s : results) s.print();
     }
     else cout << "Sorry, we have nothing for you.";

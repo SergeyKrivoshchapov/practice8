@@ -1,4 +1,5 @@
 #pragma once
+#include "Price.h"
 #include <string>
 using namespace std;
 enum class Manufacturer {
@@ -13,10 +14,10 @@ class Smartphone {
 private:
     string model; Manufacturer manufacturer; Color color;
     float displaySize; int ram, storage;
-    CPU cpu; OS os; double price;
+    CPU cpu; OS os; Price price;
 public:
     Smartphone();
-    Smartphone(string model, double price, Manufacturer manufacturer,
+    Smartphone(string model, Price price, Manufacturer manufacturer,
     Color color, float displaySize, int ram,
     int storage, CPU cpu, OS os);
     string getModel() const;
@@ -27,8 +28,8 @@ public:
     int getStorage() const;
     CPU getCPU() const;
     OS getOS() const;
-    double getPrice() const;
-    void setPrice(double price);
+    Price getPrice() const;
+    void setPrice(Price price);
     string colorToString(Color c);
     string manufacturerToString(Manufacturer m);
     string osToString(OS o);
