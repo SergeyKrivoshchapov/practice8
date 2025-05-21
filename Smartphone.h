@@ -2,13 +2,13 @@
 #include <string>
 using namespace std;
 enum class Manufacturer {
-    APPLE, SAMSUNG, XIAOMI, HTC, UNDEFINED};
+    APPLE, SAMSUNG, XIAOMI, HTC, HUAWEI, GOOGLE, PANASONIC, UNDEFINED};
 enum class Color {
-    WHITE, GRAY, BLACK, BLUE, RED, GOLD, UNDEFINED};
+    WHITE, GRAY, BLACK, BLUE, RED, GOLD, YELLOW, GREEN, BROWN, UNDEFINED};
 enum class OS {
-    ANDROID, IOS, UNDEFINED};
+    ANDROID, IOS, WINDOWS, GOOGLE, BLACKBERRY, UNDEFINED};
 enum class CPU {
-    SNAPDRAGON, APPLE, UNDEFINED};
+    SNAPDRAGON, APPLE, EXYNOS, TENSOR, TIGER, UNDEFINED};
 class Smartphone {
 private:
     string model; Manufacturer manufacturer; Color color;
