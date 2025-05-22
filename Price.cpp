@@ -7,9 +7,8 @@ Price::Price() {
 }
 
 Price::Price(double price, Valuta valuta) {
-    if (price < 0) {
-        throw std::invalid_argument("Price cannot be less than zero");
-    }
+    if (price < 0) throw std::invalid_argument("Price cannot be less than zero");
+    if (valuta == Valuta::UNDEFINED) throw std::invalid_argument("Price always needs measure");
     this->price = price;
     this->valuta = valuta;
 }
@@ -42,7 +41,7 @@ double Price::convertToValuta(const Valuta valuta_tochange) const{
     };
 
     if (valuta == valuta_tochange) return price;
-    if (valuta_tochange == Valuta::UNDEFINED || valuta == Valuta::UNDEFINED) return price;
+    if (valuta_tochange == Valuta::UNDEFINED || valuta == Valuta::UNDEFINED) throw std::invalid_argument("Price always needs measure");
 
     int from = static_cast<int>(valuta);
     int to = static_cast<int>(valuta_tochange);
@@ -61,9 +60,9 @@ std::string Price::valutaToString(Valuta valuta) {
     }
 }
 
-bool Price::operator<=(const Price &other) {
+bool Price::operator<(const Price &other) {
     if (valuta == Valuta::UNDEFINED || other.valuta == Valuta::UNDEFINED) return false;
-    if (valuta == other.valuta) return price <= other.price;
-    return convertToValuta(other.valuta) <= other.price;
+    if (valuta == other.valuta) return price < other.price;
+    return convertToValuta(other.valuta) < other.price;
 }
 

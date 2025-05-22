@@ -11,4 +11,10 @@ add_executable(project81 main.cpp
         Price.cpp
         Price.h
         Price.cpp
-        Price.h)
+        Price.h
+        Memory.cpp
+        Memory.h
+        Ram.cpp
+        Ram.h
+        Storage.cpp
+        Storage.h)

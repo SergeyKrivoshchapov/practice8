@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 
-enum class Valuta { RUB, EUR, USD, GBP, UNDEFINED};
+enum class Valuta { RUB, EUR, USD, GBP, UNDEFINED };
 
 class Price {
     private:
@@ -16,6 +16,6 @@ class Price {
     double amountPrice() const;
     Valuta getValuta() const;
     std::string valutaToString (Valuta valuta);
-    bool operator<=(const Price& other);
+    bool operator<(const Price& other);
 };
 

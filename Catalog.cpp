@@ -1,14 +1,14 @@
 #include "Catalog.h"
-#include "Price.h"
 #include <algorithm>
 #include <cctype>
+#include <iostream>
+#include <ostream>
+
 void Catalog::addSmartphone(string model, Price price, Manufacturer
-manufacturer,
-Color color, float displaySize, int ram,
-int storage, CPU cpu, OS os) {
+                            manufacturer,
+                            Color color, float displaySize, Memory memory, CPU cpu, OS os) {
     smartphones.push_back(Smartphone{ model, price, manufacturer,
-    color, displaySize, ram,
-    storage, cpu, os });
+    color, displaySize, memory, cpu, os });
 }
 
 Smartphone Catalog::getSmartphone(string model) {
@@ -28,7 +28,7 @@ vector<Smartphone> Catalog::search(const Smartphone& searchSmartphone) {
         string model2 = s.getModel();
         transform(model2.begin(), model2.end(), model2.begin(), [](unsigned char c) { return tolower(c); });
         if (!model.empty() && model != model2) continue;
-        if ((searchSmartphone.getPrice()).amountPrice() > 0 &&  searchSmartphone.getPrice() <= s.getPrice()) continue;
+        if (searchSmartphone.getPrice().amountPrice() > 0 && searchSmartphone.getPrice() < s.getPrice()) continue;
         Manufacturer manufacturer = searchSmartphone.getManufacturer();
         if (manufacturer != Manufacturer::UNDEFINED && manufacturer !=
         s.getManufacturer()) continue;
@@ -36,10 +36,8 @@ vector<Smartphone> Catalog::search(const Smartphone& searchSmartphone) {
         if (color != Color::UNDEFINED && color != s.getColor()) continue;
         float displaySize = searchSmartphone.getDisplay();
         if (displaySize > 0 && displaySize != s.getDisplay()) continue;
-        int ram = searchSmartphone.getRAM();
-        if (ram > 0 && ram != s.getRAM()) continue;
-        int storage = searchSmartphone.getStorage();
-        if (storage > 0 && storage != s.getStorage()) continue;
+        if (searchSmartphone.getRam().getRamAmount() > 0 && (searchSmartphone.getRam() > s.getRam())) continue;
+        if (searchSmartphone.getStorage().getStorageAmount() > 0 && searchSmartphone.getStorage() > s.getStorage()) continue;
         CPU cpu = searchSmartphone.getCPU();
         if (cpu != CPU::UNDEFINED && cpu != s.getCPU()) continue;
         OS os = searchSmartphone.getOS();

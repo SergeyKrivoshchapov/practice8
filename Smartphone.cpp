@@ -5,19 +5,18 @@ Smartphone::Smartphone() {
     this->model = "";
     this->manufacturer = Manufacturer::UNDEFINED;
     this->color = Color::UNDEFINED;
-    this->displaySize = 0; this->ram = 0;
-    this->storage = 0;
+    this->displaySize = 0;
+    this->memory = Memory();
     this->cpu = CPU::UNDEFINED; this->os = OS::UNDEFINED;
 }
 Smartphone::Smartphone(string model, Price price, Manufacturer manufacturer,
-Color color, float displaySize, int ram, int storage, CPU cpu, OS os) {
+Color color, float displaySize, Memory memory, CPU cpu, OS os) {
     this->model = model;
     this->price = price;
     this->manufacturer = manufacturer;
     this->color = color;
     this->displaySize = displaySize;
-    this->ram = ram;
-    this->storage = storage;
+    this->memory = memory;
     this->cpu = cpu;
     this->os = os;
 }
@@ -25,13 +24,12 @@ string Smartphone::getModel() const { return model; }
 Manufacturer Smartphone::getManufacturer() const { return manufacturer; }
 Color Smartphone::getColor() const { return color; }
 float Smartphone::getDisplay() const { return displaySize; }
-int Smartphone::getRAM() const { return ram; }
-int Smartphone::getStorage() const { return storage; }
 CPU Smartphone::getCPU() const { return cpu; }
 OS Smartphone::getOS() const { return os; }
 Price Smartphone::getPrice() const { return price; }
 void Smartphone::setPrice(Price price) { this->price = price; }
-
+Ram Smartphone::getRam() const { return memory.getRam(); }
+Storage Smartphone::getStorage() const { return memory.getStorage(); }
 string Smartphone::colorToString(Color c) {
     switch (c) {
         case Color::WHITE: return "WHITE";
@@ -82,6 +80,17 @@ string Smartphone::cpuToString(CPU cpu) {
     }
 }
 
+std::string Smartphone::measureToString(MemoryMeasure measure) {
+    switch (measure) {
+        case MemoryMeasure::B : return "B";
+        case MemoryMeasure::KB : return "KB";
+        case MemoryMeasure::MB : return "MB";
+        case MemoryMeasure::GB : return "GB";
+        case MemoryMeasure::TB : return "TB";
+        default: return "UNDEFINED";
+    }
+}
+
 void Smartphone::print() {
     if (model.empty()) {
         cout << "Sorry, we have nothing for you." << endl;
@@ -94,6 +103,7 @@ void Smartphone::print() {
     cout << "Color: " << colorToString(color) << endl;
     cout << "Display: " << displaySize << endl;
     cout << "OS: " << osToString(os) << endl;
-    cout << ram << "Gb RAM, " << storage << " GB storage" << endl;
+    cout << "Ram: " << memory.getRam().getRamAmount() << measureToString(memory.getRam().getRamMeasure()) << " Storage: " << memory.getStorage().
+            getStorageAmount() << measureToString(memory.getStorage().getStorageMeasure()) << endl;
     cout << "CPU: " << cpuToString(cpu) << endl;
 }
