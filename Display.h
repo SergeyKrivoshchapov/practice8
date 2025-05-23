@@ -14,7 +14,7 @@ public:
     Display(double width, double height, double diag, MonitorMeasure measure, int colors);
 
     double getWidth();
-    double getHeight();
+    double getHeight();//
     double getDiag();
     MonitorMeasure getMonitorMeasure();
     int getColors();
