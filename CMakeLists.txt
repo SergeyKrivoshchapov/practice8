@@ -17,4 +17,6 @@ add_executable(project81 main.cpp
         Ram.cpp
         Ram.h
         Storage.cpp
-        Storage.h)
+        Storage.h
+        Display.cpp
+        Display.h)

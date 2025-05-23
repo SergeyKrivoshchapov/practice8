@@ -91,6 +91,12 @@ build CMakeFiles/project81.dir/Storage.cpp.o: CXX_COMPILER__project81_unscanned_
   OBJECT_DIR = CMakeFiles/project81.dir
   OBJECT_FILE_DIR = CMakeFiles/project81.dir
 
+build CMakeFiles/project81.dir/Display.cpp.o: CXX_COMPILER__project81_unscanned_Debug /home/kserg/Desktop/studfiles/project81/Display.cpp || cmake_object_order_depends_target_project81
+  DEP_FILE = CMakeFiles/project81.dir/Display.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/project81.dir
+  OBJECT_FILE_DIR = CMakeFiles/project81.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target project81
@@ -99,7 +105,7 @@ build CMakeFiles/project81.dir/Storage.cpp.o: CXX_COMPILER__project81_unscanned_
 #############################################
 # Link the executable project81
 
-build project81: CXX_EXECUTABLE_LINKER__project81_Debug CMakeFiles/project81.dir/main.cpp.o CMakeFiles/project81.dir/Smartphone.cpp.o CMakeFiles/project81.dir/Catalog.cpp.o CMakeFiles/project81.dir/Price.cpp.o CMakeFiles/project81.dir/Memory.cpp.o CMakeFiles/project81.dir/Ram.cpp.o CMakeFiles/project81.dir/Storage.cpp.o
+build project81: CXX_EXECUTABLE_LINKER__project81_Debug CMakeFiles/project81.dir/main.cpp.o CMakeFiles/project81.dir/Smartphone.cpp.o CMakeFiles/project81.dir/Catalog.cpp.o CMakeFiles/project81.dir/Price.cpp.o CMakeFiles/project81.dir/Memory.cpp.o CMakeFiles/project81.dir/Ram.cpp.o CMakeFiles/project81.dir/Storage.cpp.o CMakeFiles/project81.dir/Display.cpp.o
   DEP_FILE = CMakeFiles/project81.dir/link.d
   FLAGS = -g
   LINK_FLAGS = -Wl,--dependency-file=CMakeFiles/project81.dir/link.d
